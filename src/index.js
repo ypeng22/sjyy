@@ -3,6 +3,47 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import backend from './backend';
 
+// Year, languages, skills, focus area, time zone, project idea, hackathon experience, major, about me section.
+
+
+class HackerProfile extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      fname: props.fname,
+      lname: props.lname,
+      year: props.year,
+      langs: props.langs,
+      skills: props.skills,
+      fa: props.fa,
+      zone: props.zone,
+      idea: props.idea,
+      exp: props.exp,
+      major: props.major,
+      bio: props.bio,
+    };
+  }
+
+  render(){
+    return(
+      <div className="hacker">
+        <div className="name">{this.state.fname +' '+ this.state.lname}</div>
+          <ul className="prof">
+            <li className="pfield"><b>Year: </b>{this.state.year}</li>
+            <li className="pfield"><b>Languages: </b>{this.state.langs}</li>
+            <li className="pfield"><b>Skills: </b>{this.state.skills}</li>
+            <li className="pfield"><b>Area of Focus: </b>{this.state.fa}</li>
+            <li className="pfield"><b>Timezone: </b>{this.state.zone}</li>
+            <li className="pfield"><b>Project Idea: </b>{this.state.idea}</li>
+            <li className="pfield"><b>Previous Hackathons: </b>{this.state.exp}</li>
+            <li className="pfield"><b>Major: </b>{this.state.major}</li>
+            <li className="pfield"><b>About: </b>{this.state.bio}</li>
+          </ul>
+      </div>
+    );
+  }
+}
+
 class ShortEntry extends React.Component{
   constructor(props){
     super(props);
@@ -14,9 +55,6 @@ class ShortEntry extends React.Component{
     };
   }
 
-  UpdateCallback = (event) => {
-    this.setState({value: event.target.value});
-  }
   render(){
     return(
       <div className="row">
@@ -101,6 +139,7 @@ class DropdownSelection extends React.Component {
 }
 
 class Signup extends React.Component {
+  
   MatchType = ['a new team', 'team members'];
   constructor(props){
     super(props);
@@ -132,6 +171,33 @@ class Signup extends React.Component {
 
 
   render() {
+
+    var pf1 = {
+      fname: "Rob",
+      lname: "Boss",
+      year: 4,
+      langs: "Java, HTML, CSS, Python",
+      skills: "Android APIs and COM project architecture",
+      fa: "Mobile Web App Development",
+      zone: "CEST",
+      idea: "Candy Crush 2: Electric Boogaloo",
+      exp: 3,
+      major: "Computer Science",
+      bio: "lets make a code together!",
+    };
+    const pf2 = {
+      fname: "Rodly",
+      lname: "Swiplen",
+      year: 1,
+      langs: "x86 Intel Assembly, FORTRAN, LISP",
+      skills: "reverse engineering and manual analysis of runtime memory",
+      fa: "Console Hardware Emulation",
+      zone: "CET",
+      idea: "N64 Emulation software that runs on my WiiU hardware emulator",
+      exp: 0,
+      major: "Computer Science",
+      bio: "optimize first, ask questions later.",
+    };
     
     return (
       <div className="container">
@@ -160,6 +226,18 @@ class Signup extends React.Component {
             placeholder="Talk about yourself!"
             updateFn={this.UpdateBio}
             />
+            <HackerProfile 
+              fname={pf1.fname}
+              lname={pf1.lname}
+              year={pf1.year}
+              langs={pf1.langs}
+              skills={pf1.skills}
+              fa={pf1.fa}
+              zone={pf1.zone}
+              idea={pf1.idea}
+              exp={pf1.exp}
+              major={pf1.major}
+              bio={pf1.bio}/>
               <div className="row">
                 <input type="submit" value="Submit"/>
           </div>
