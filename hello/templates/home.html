@@ -12,7 +12,7 @@ logged in as {{ email }}
 </form>
 <br>
 
-<form action="{% url 'search' %}" method="post">
+<form action="{% url 'confirm' %}" method="post">
 {% csrf_token %}
 <label for="event_name">Look for an event:</label>
 <input type="text" id="event_name" name="event_name"><br><br>

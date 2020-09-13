@@ -146,5 +146,4 @@ def search(request):
     return render(request, 'participant_viewer.html', {'data': res[0], 'event_name':name})
 
 
-def search_res(request);:
     
