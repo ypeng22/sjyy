@@ -5,6 +5,10 @@ let addUser = function (name, match_t, bio){
     alert(output)
 }
 
+let queryDB = function (args) {
+}
+
 module.exports = {
-    addUser
+    addUser,
+    queryDB
 }
