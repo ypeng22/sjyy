@@ -25,8 +25,13 @@ urlpatterns = [
     #path('wel/', ReactView.as_view(), name="something"),
     path('newpage/',  views.new_page,  name="new"),
     path('signup/',  views.signup,  name="signup"),
-    path('',  views.login,  name="login"),
-    path('login/', views.login_res, name="login_res"),
-    path('home/',  views.home,  name="home"),
-
+    path('login/',  views.login,  name="login"),
+    path('login_res/', views.login_res, name="login_res"),
+    path('',  views.home,  name="home"),
+    path('logout/', views.logout, name='logout'),
+    path('events/', views.events, name='events'),
+    path('create/', views.create, name='create'),
+    path('confirm/', views.confirm, name='confirm'),
+    path('search/', views.search, name='search'),
+    path('search_res/', views.search_res, name='search')
 ]

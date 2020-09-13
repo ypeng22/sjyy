@@ -19,3 +19,14 @@ handler.execute("select * from perm")
 res = handler.fetchall()
 for r in res:
     print(r)
+    
+    
+    
+    #<label for="team">Looking for a team? y or n:</label>
+  #<input type="number" id="team" name="team"><br><br>
+  
+  covar myObject = {
+        "profiles": 
+            {{ data }}
+        
+    };

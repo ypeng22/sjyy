@@ -1,25 +1,35 @@
-<h1>Home</h1>
+<h1>Home for Organizers</h1>
 
 logged in as {{ email }}
+
+<br>
 
 <form action="{% url 'login' %}" method="post">
 {% csrf_token %}
 <input type="submit" value="login"/>
 </form>
-<form action="{% url 'signup' %}" method="post">
-{% csrf_token %}
-<input type="submit" value="sign up"/>
-</form>
+
 <br>
 
-<form action="{% url 'search' %}" method="post">
+<form action="{% url 'events' %}" method="post">
 {% csrf_token %}
 <label for="event_name">Look for an event:</label>
-<input type="text" id="event_name" name="event_name"><br><br>
+<input type="text" id="event_name" name="event_name">
 <input type="submit" value="search!"/>
 </form>
+
 <br>
+
 <form action="{% url 'logout' %}" method="post">
 {% csrf_token %}
 <input type="submit" value="logout"/>
+</form>
+
+<br>
+
+<form action="{% url 'create' %}" method="post">
+{% csrf_token %}
+<label for="create_name">Create event:</label>
+<input type="text" id="create_name" name="create_name">
+<input type="submit" value="create_event"/>
 </form>

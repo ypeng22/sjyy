@@ -14,6 +14,9 @@ temp = "CREATE TABLE " + name + " LIKE perm"
 handler.execute(temp)
 temp1 = "alter table " + name + " drop column password" 
 handler.execute(temp1)
+
+temp2 = "alter table " + name + " add column team varchar(1)" #y or n 
+handler.execute(temp1)
 db_connect.commit()
 
 
@@ -43,7 +46,7 @@ Host = "35.226.207.58"
 Db = "Perm_Users"
 User = "root"
 Pass = "sjyy"
-sorts = {"languages": ['java'], "major": ['cs'] } #param
+sorts = {"name": ['bob'], "major": ['cs'] } #param
 name = 'test_table_1' #param
 sort_by = list(sorts.keys())
 
