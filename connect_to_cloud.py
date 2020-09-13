@@ -1,0 +1,21 @@
+import mysql.connector as m
+
+Host = "35.226.207.58"
+Db = "Perm_Users"
+User = "root"
+Pass = "sjyy"
+db_connect = m.connect(host=Host, database=Db, user=User, password=Pass)
+print(db_connect.get_server_info())
+handler = db_connect.cursor()
+handler.execute("show databases")
+res = handler.fetchall()
+for r in res:
+    print(r)
+
+#name, year,languages,skills,focus_area,time_zone,project_ideas,hackathon_exp,major,about_me,email,password
+handler.execute("insert into perm(name, year,languages,skills,focus_area,time_zone,project_ideas,hackathon_exp,major,about_me,email,password) values ('python', 3)")
+db_connect.commit()
+handler.execute("select * from perm")
+res = handler.fetchall()
+for r in res:
+    print(r)
