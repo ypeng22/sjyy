@@ -1,0 +1,16 @@
+<h1>HOMEPAGE</h1>
+<br>
+
+<br>
+<form action="{% url 'login_res' %}" method="post">
+{% csrf_token %}
+
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email"><br><br>
+  
+  <label for="pw">Password:</label>
+  <input type="password" id="pw" name="pw"><br><br>
+    
+<br />
+<input type="submit" value="fetch data!"/>
+</form>
