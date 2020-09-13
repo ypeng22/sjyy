@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hello',
-    'polls.apps.PollsConfig',
+    #'polls.apps.PollsConfig',
     'rest_framework',
-    'core',
+    #'core',
     'corsheaders'
 ]
 
