@@ -24,5 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #path('wel/', ReactView.as_view(), name="something"),
     path('newpage/',  views.new_page,  name="new"),
-    path('home/',  views.home,  name="home")
+    path('signup/',  views.signup,  name="signup"),
+    path('',  views.login,  name="login"),
+    path('login/', views.login_res, name="login_res"),
+    path('home/',  views.home,  name="home"),
+
 ]

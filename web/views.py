@@ -1,8 +1,11 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 import mysql.connector as m
     
-def home(request):
-   return render(request, 'home.html')
+def signup(request):
+   #sesh = request.session.get('num_visits', 0)
+   #request.session['num_visits'] = sesh + 1
+   return render(request, 'signup.html', {})
 
 def new_page(request):
    print(request.POST.keys())
@@ -43,5 +46,28 @@ def new_page(request):
  
    return render(request, 'newpage.html', {})
 
-def post(request):
-    print("HERE: ", type(request.Post))
+def login(request):
+    return render(request, 'login.html', {})
+
+def home(request):
+    return render(request, 'home.html', {})
+    
+def login_res(request):
+    email = request.POST['email']
+    pw = request.POST['pw']
+
+    Host = "35.226.207.58"
+    Db = "Perm_Users"
+    User = "root"
+    Pass = "sjyy"
+    db_connect = m.connect(host=Host, database=Db, user=User, password=Pass)
+    handler = db_connect.cursor()
+    temp = "select * from perm where email=\"" + email + "\" and password = \"" + pw + "\""
+    handler.execute(temp)
+    res = handler.fetchall()
+    if len(res) > 0:
+        request.session['emaillogin'] = email
+        return render(request, 'home.html', {'email':email})   
+    else:
+        return HttpResponse("invalid login")
+    
