@@ -88,7 +88,7 @@ def confirm(request):
     email = request.session.get('emaillogin', None)
     if email == None:
         return HttpResponse("log in first")
-    name = request.POST['event_name']
+    en = request.POST['event_name']
     Host = "35.226.207.58"
     Db = "Perm_Users"
     User = "root"
@@ -111,7 +111,7 @@ def confirm(request):
     major = res[0][8]
     am = res[0][9]
     password = res[0][11]
-    return render(request, 'confirm.html', {'password': password, 'email': email, 'name':name, 'year':year, 'langs':langs, 'skills':skills, 'fa':fa, 'tz':tz, 'pi':pi, 'hack':hack, 'major':major, 'am':am, })
+    return render(request, 'confirm.html', {'en':en, 'password': password, 'email': email, 'name':name, 'year':year, 'langs':langs, 'skills':skills, 'fa':fa, 'tz':tz, 'pi':pi, 'hack':hack, 'major':major, 'am':am, })
 
 def create(request):
     name = request.POST['create_name']
@@ -145,5 +145,19 @@ def search(request):
     res = handler.fetchall()
     return render(request, 'participant_viewer.html', {'data': res[0], 'event_name':name})
 
+def reg(request):
+    email = request.session.get('emaillogin', None)
+    name = request.POST['en']
+    Host = "35.226.207.58"
+    Db = "Perm_Users"
+    User = "root"
+    Pass = "sjyy"
+    db_connect = m.connect(host=Host, database=Db, user=User, password=Pass)
+    print(db_connect.get_server_info())
+    handler = db_connect.cursor()
+    temp = "insert into " + name + " (name, year,languages,skills,focus_area,time_zone,project_ideas,hackathon_exp,major,about_me,email) select name, year, languages, skills, focus_area, time_zone, project_ideas, hackathon_exp ,major, about_me, email from perm where email=\"" + email + "\""        
+    handler.execute(temp)
+    db_connect.commit()
+    return HttpResponse("enrolled!")
 
     

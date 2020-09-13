@@ -2,7 +2,7 @@
 <br>
 
 <br>
-<form action="{% url 'register' %}" method="post">
+<form action="{% url 'reg' %}" method="post">
 {% csrf_token %}
 
   <label for="name">Name:</label>
@@ -42,6 +42,8 @@
     
   <label for="am">About me (optional):</label>
   <input type="text" id="am" name="am" value= {{ am }}><br><br>
+  
+  <input type="text" id="en" name="en" value= {{ en }}><br><br>
   
 <br />
 <input type="submit" value="enroll"/>

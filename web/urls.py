@@ -33,5 +33,5 @@ urlpatterns = [
     path('create/', views.create, name='create'),
     path('confirm/', views.confirm, name='confirm'),
     path('search/', views.search, name='search'),
-    #path('search_res/', views.search_res, name='search')
+    path('register/', views.reg, name='reg')
 ]
